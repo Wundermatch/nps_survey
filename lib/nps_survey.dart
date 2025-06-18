@@ -5,6 +5,7 @@ class NPSSurvey {
   Future<void> showNPSDialog(
       {required BuildContext context,
       required Function(String, int) callback,
+      Function(int)? scoreCallback,
       Color? generalColor,
       BoxDecoration? dialogContainerStyle,
       bool? selectedScoreVisible,
@@ -28,6 +29,7 @@ class NPSSurvey {
       builder: (BuildContext context) {
         return NPSSurveyDialog(
             callback: callback,
+            scoreCallback: scoreCallback,
             generalColor: generalColor,
             dialogContainerStyle: dialogContainerStyle,
             surveyQuestionText: surveyQuestionText,
