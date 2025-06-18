@@ -7,6 +7,7 @@ class NPSSurveyDialog extends StatefulWidget {
   const NPSSurveyDialog(
       {super.key,
       required this.callback,
+      this.scoreCallback,
       this.generalColor,
       this.dialogContainerStyle,
       this.surveyQuestionText,
@@ -26,6 +27,7 @@ class NPSSurveyDialog extends StatefulWidget {
       this.selectedScoreVisible});
 
   final Function(String, int) callback;
+  final Function(int)? scoreCallback;
 
   final Color? generalColor;
   final BoxDecoration? dialogContainerStyle;
@@ -121,6 +123,9 @@ class _NPSSurveyDialogState extends State<NPSSurveyDialog> {
                           bottomRightText: widget.surveyBottomRightText,
                           bottomTextsStyle: widget.surveyBottomTextStyle,
                           surveyResponse: (int answeredNumber) {
+                            if (widget.scoreCallback != null) {
+                              widget.scoreCallback!(answeredNumber);
+                            }
                             setState(() {
                               surveyResponseNumber = answeredNumber;
                               pageIndex = 1;
