@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nps_survey/enums/scoring_group.dart';
+import 'package:nps_survey/pages/custom_page.dart';
 import 'package:nps_survey/widgets/nps_survey_dialog.dart';
 
 class NPSSurvey {
@@ -16,6 +18,7 @@ class NPSSurvey {
       String? passivesQuestionText,
       String? promotersQuestionText,
       String? submitButtonText,
+      Map<ScoringGroup, CustomPage>? customPages,
       TextStyle? surveyQuestionTextStyle,
       TextStyle? surveyBottomTextStyle,
       TextStyle? feedbackQuestionsTextStyle,
@@ -28,25 +31,27 @@ class NPSSurvey {
       barrierDismissible: true,
       builder: (BuildContext context) {
         return NPSSurveyDialog(
-            callback: callback,
-            scoreCallback: scoreCallback,
-            generalColor: generalColor,
-            dialogContainerStyle: dialogContainerStyle,
-            surveyQuestionText: surveyQuestionText,
-            surveyBottomLeftText: surveyBottomLeftText,
-            surveyBottomRightText: surveyBottomRightText,
-            detractorsQuestionText: detractorsQuestionText,
-            passivesQuestionText: passivesQuestionText,
-            promotersQuestionText: promotersQuestionText,
-            submitButtonText: submitButtonText,
-            surveyQuestionTextStyle: surveyQuestionTextStyle,
-            surveyBottomTextStyle: surveyBottomTextStyle,
-            feedbackQuestionsTextStyle: feedbackQuestionsTextStyle,
-            submitButtonTextStyle: submitButtonTextStyle,
-            feedbackInputTextStyle: feedbackInputTextStyle,
-            submitButtonStyle: submitButtonStyle,
-            selectedScoreVisible: selectedScoreVisible,
-            feedbackInputStyle: feedbackInputStyle);
+          callback: callback,
+          scoreCallback: scoreCallback,
+          generalColor: generalColor,
+          dialogContainerStyle: dialogContainerStyle,
+          surveyQuestionText: surveyQuestionText,
+          surveyBottomLeftText: surveyBottomLeftText,
+          surveyBottomRightText: surveyBottomRightText,
+          detractorsQuestionText: detractorsQuestionText,
+          passivesQuestionText: passivesQuestionText,
+          promotersQuestionText: promotersQuestionText,
+          submitButtonText: submitButtonText,
+          surveyQuestionTextStyle: surveyQuestionTextStyle,
+          surveyBottomTextStyle: surveyBottomTextStyle,
+          feedbackQuestionsTextStyle: feedbackQuestionsTextStyle,
+          submitButtonTextStyle: submitButtonTextStyle,
+          feedbackInputTextStyle: feedbackInputTextStyle,
+          submitButtonStyle: submitButtonStyle,
+          selectedScoreVisible: selectedScoreVisible,
+          feedbackInputStyle: feedbackInputStyle,
+          customPages: customPages,
+        );
       },
     );
   }
