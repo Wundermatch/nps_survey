@@ -119,77 +119,17 @@ class _NPSSurveyDialogState extends State<NPSSurveyDialog> {
       if (surveyResponseNumber >= 0 &&
           surveyResponseNumber <= 6 &&
           (widget.customPages?.containsKey(ScoringGroup.Detractors) ?? false)) {
-        return <Widget>[
-          CustomPage(
-              dialogContainerStyle: widget.dialogContainerStyle,
-              question: widget.detractorsQuestionText ??
-                  DefaultStringValues.detractorsQuestionDefault,
-              questionsTextStyle: widget.feedbackQuestionsTextStyle,
-              callback: widget.callback,
-              surveyResponseNumber: surveyResponseNumber,
-              submitButtonText: widget.submitButtonText,
-              submitButtonTextStyle: widget.submitButtonTextStyle,
-              submitButtonStyle: widget.submitButtonStyle,
-              feedbackInputStyle: widget.feedbackInputStyle,
-              feedbackInputTextStyle: widget.feedbackInputTextStyle,
-              selectedScoreVisible: widget.selectedScoreVisible,
-              goBack: () => setState(() {
-                    pageIndex = 0;
-                  }),
-              children: [
-                widget.customPages![ScoringGroup.Detractors]!,
-              ])
-        ];
+        return <Widget>[widget.customPages![ScoringGroup.Detractors]!];
       } else if (surveyResponseNumber == 7 ||
           surveyResponseNumber == 8 &&
               (widget.customPages?.containsKey(ScoringGroup.Passives) ??
                   false)) {
-        return <Widget>[
-          CustomPage(
-              dialogContainerStyle: widget.dialogContainerStyle,
-              question: widget.passivesQuestionText ??
-                  DefaultStringValues.passivesQuestionDefault,
-              questionsTextStyle: widget.feedbackQuestionsTextStyle,
-              callback: widget.callback,
-              surveyResponseNumber: surveyResponseNumber,
-              submitButtonText: widget.submitButtonText,
-              submitButtonTextStyle: widget.submitButtonTextStyle,
-              submitButtonStyle: widget.submitButtonStyle,
-              feedbackInputStyle: widget.feedbackInputStyle,
-              feedbackInputTextStyle: widget.feedbackInputTextStyle,
-              selectedScoreVisible: widget.selectedScoreVisible,
-              goBack: () => setState(() {
-                    pageIndex = 0;
-                  }),
-              children: [
-                widget.customPages![ScoringGroup.Passives]!,
-              ])
-        ];
+        return <Widget>[widget.customPages![ScoringGroup.Passives]!];
       } else if (surveyResponseNumber == 9 ||
           surveyResponseNumber == 10 &&
               (widget.customPages?.containsKey(ScoringGroup.Promoters) ??
                   false)) {
-        return <Widget>[
-          CustomPage(
-              dialogContainerStyle: widget.dialogContainerStyle,
-              question: widget.promotersQuestionText ??
-                  DefaultStringValues.promotersQuestionDefault,
-              questionsTextStyle: widget.feedbackQuestionsTextStyle,
-              callback: widget.callback,
-              surveyResponseNumber: surveyResponseNumber,
-              submitButtonText: widget.submitButtonText,
-              submitButtonTextStyle: widget.submitButtonTextStyle,
-              submitButtonStyle: widget.submitButtonStyle,
-              feedbackInputStyle: widget.feedbackInputStyle,
-              feedbackInputTextStyle: widget.feedbackInputTextStyle,
-              selectedScoreVisible: widget.selectedScoreVisible,
-              goBack: () => setState(() {
-                    pageIndex = 0;
-                  }),
-              children: [
-                widget.customPages![ScoringGroup.Promoters]!,
-              ])
-        ];
+        return <Widget>[widget.customPages![ScoringGroup.Passives]!];
       }
       return <Widget>[
         FeedbackPage(
