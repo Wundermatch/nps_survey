@@ -23,6 +23,8 @@ class NpsTop extends StatelessWidget {
               topRight: Radius.circular(SizeConstants.standardBorderRadius))),
       child: Center(
           child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Align(
             alignment: Alignment.topRight,

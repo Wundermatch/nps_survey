@@ -117,8 +117,7 @@ class _NPSSurveyDialogState extends State<NPSSurveyDialog> {
             })
       ];
     } else {
-      if (surveyResponseNumber >= 0 &&
-          surveyResponseNumber <= 6 &&
+      if ((surveyResponseNumber >= 0 && surveyResponseNumber <= 6) &&
           (widget.customPages?.containsKey(ScoringGroup.Detractors) ?? false)) {
         return <Widget>[
           CustomPage(
@@ -135,10 +134,8 @@ class _NPSSurveyDialogState extends State<NPSSurveyDialog> {
             children: widget.customPages![ScoringGroup.Detractors]!.children,
           )
         ];
-      } else if (surveyResponseNumber == 7 ||
-          surveyResponseNumber == 8 &&
-              (widget.customPages?.containsKey(ScoringGroup.Passives) ??
-                  false)) {
+      } else if ((surveyResponseNumber == 7 || surveyResponseNumber == 8) &&
+          (widget.customPages?.containsKey(ScoringGroup.Passives) ?? false)) {
         return <Widget>[
           CustomPage(
             question: widget.customPages![ScoringGroup.Passives]!.question,
@@ -154,10 +151,8 @@ class _NPSSurveyDialogState extends State<NPSSurveyDialog> {
             children: widget.customPages![ScoringGroup.Passives]!.children,
           )
         ];
-      } else if (surveyResponseNumber == 9 ||
-          surveyResponseNumber == 10 &&
-              (widget.customPages?.containsKey(ScoringGroup.Promoters) ??
-                  false)) {
+      } else if ((surveyResponseNumber == 9 || surveyResponseNumber == 10) &&
+          (widget.customPages?.containsKey(ScoringGroup.Promoters) ?? false)) {
         return <Widget>[
           CustomPage(
             question: widget.customPages![ScoringGroup.Promoters]!.question,
