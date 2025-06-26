@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nps_survey/custom_page_parameters.dart';
 import 'package:nps_survey/enums/scoring_group.dart';
-import 'package:nps_survey/pages/custom_page.dart';
 import 'package:nps_survey/widgets/nps_survey_dialog.dart';
 
 class NPSSurvey {
@@ -18,7 +18,7 @@ class NPSSurvey {
       String? passivesQuestionText,
       String? promotersQuestionText,
       String? submitButtonText,
-      Map<ScoringGroup, CustomPage>? customPages,
+      Map<ScoringGroup, CustomPageParameters>? customPages,
       TextStyle? surveyQuestionTextStyle,
       TextStyle? surveyBottomTextStyle,
       TextStyle? feedbackQuestionsTextStyle,

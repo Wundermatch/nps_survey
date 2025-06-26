@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nps_survey/constants/constants.dart';
+import 'package:nps_survey/custom_page_parameters.dart';
 import 'package:nps_survey/enums/scoring_group.dart';
 import 'package:nps_survey/pages/custom_page.dart';
 import 'package:nps_survey/pages/feedback_page.dart';
@@ -53,7 +54,7 @@ class NPSSurveyDialog extends StatefulWidget {
   final InputDecoration? feedbackInputStyle;
 
   final bool? selectedScoreVisible;
-  final Map<ScoringGroup, CustomPage>? customPages;
+  final Map<ScoringGroup, CustomPageParameters>? customPages;
 
   @override
   State<NPSSurveyDialog> createState() => _NPSSurveyDialogState();
@@ -119,17 +120,59 @@ class _NPSSurveyDialogState extends State<NPSSurveyDialog> {
       if (surveyResponseNumber >= 0 &&
           surveyResponseNumber <= 6 &&
           (widget.customPages?.containsKey(ScoringGroup.Detractors) ?? false)) {
-        return <Widget>[widget.customPages![ScoringGroup.Detractors]!];
+        return <Widget>[
+          CustomPage(
+            question: widget.customPages![ScoringGroup.Detractors]!.question,
+            callback: widget.callback,
+            surveyResponseNumber: surveyResponseNumber,
+            actions: widget.customPages![ScoringGroup.Detractors]!.actions,
+            dialogContainerStyle: widget.dialogContainerStyle,
+            questionsTextStyle: widget.feedbackQuestionsTextStyle,
+            selectedScoreVisible: widget.selectedScoreVisible,
+            goBack: () => setState(() {
+              pageIndex = 0;
+            }),
+            children: widget.customPages![ScoringGroup.Detractors]!.children,
+          )
+        ];
       } else if (surveyResponseNumber == 7 ||
           surveyResponseNumber == 8 &&
               (widget.customPages?.containsKey(ScoringGroup.Passives) ??
                   false)) {
-        return <Widget>[widget.customPages![ScoringGroup.Passives]!];
+        return <Widget>[
+          CustomPage(
+            question: widget.customPages![ScoringGroup.Passives]!.question,
+            callback: widget.callback,
+            surveyResponseNumber: surveyResponseNumber,
+            actions: widget.customPages![ScoringGroup.Passives]!.actions,
+            dialogContainerStyle: widget.dialogContainerStyle,
+            questionsTextStyle: widget.feedbackQuestionsTextStyle,
+            selectedScoreVisible: widget.selectedScoreVisible,
+            goBack: () => setState(() {
+              pageIndex = 0;
+            }),
+            children: widget.customPages![ScoringGroup.Passives]!.children,
+          )
+        ];
       } else if (surveyResponseNumber == 9 ||
           surveyResponseNumber == 10 &&
               (widget.customPages?.containsKey(ScoringGroup.Promoters) ??
                   false)) {
-        return <Widget>[widget.customPages![ScoringGroup.Passives]!];
+        return <Widget>[
+          CustomPage(
+            question: widget.customPages![ScoringGroup.Promoters]!.question,
+            callback: widget.callback,
+            surveyResponseNumber: surveyResponseNumber,
+            actions: widget.customPages![ScoringGroup.Promoters]!.actions,
+            dialogContainerStyle: widget.dialogContainerStyle,
+            questionsTextStyle: widget.feedbackQuestionsTextStyle,
+            selectedScoreVisible: widget.selectedScoreVisible,
+            goBack: () => setState(() {
+              pageIndex = 0;
+            }),
+            children: widget.customPages![ScoringGroup.Promoters]!.children,
+          )
+        ];
       }
       return <Widget>[
         FeedbackPage(
